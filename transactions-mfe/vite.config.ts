@@ -4,17 +4,17 @@ import federation from "@originjs/vite-plugin-federation";
 
 // https://vite.dev/config/
 export default defineConfig({
-   server: {
+  server: {
     host: "127.0.0.1",
     port: 4002,
     cors: true,
     origin: "http://127.0.0.1:4002",
     strictPort: true,
   },
+  preview: { host: "127.0.0.1", port: 4002, cors: true, strictPort: true },
 
   build: {
     target: "esnext",
-    minify: false,
     cssCodeSplit: false,
   },
 
@@ -28,7 +28,14 @@ export default defineConfig({
         "./TransactionsApp": "./src/App.tsx",
       },
 
-      shared: ["react", "react-dom"],
+      shared: {
+        react: {
+          requiredVersion: false,
+        },
+        "react-dom": {
+          requiredVersion: false,
+        },
+      },
     }),
   ],
 });
