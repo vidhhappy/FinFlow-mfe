@@ -1,12 +1,3 @@
-import Accounts from './Accounts'
-import './App.css'
-
-function App() {
-  return (
-    <>
-      <Accounts/>
-    </>
-  )
-}
-
+import Accounts, { type AccountsAppProps } from "./Accounts";
+function App(props: AccountsAppProps) { return <Accounts {...props} />; }
 export default App;

@@ -11,10 +11,10 @@ export default defineConfig({
     origin: "http://127.0.0.1:4001",
     strictPort: true,
   },
+  preview: { host: "127.0.0.1", port: 4001, cors: true, strictPort: true },
 
   build: {
     target: "esnext",
-    minify: false,
     cssCodeSplit: false,
   },
   plugins: [
